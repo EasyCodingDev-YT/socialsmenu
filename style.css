@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+.chat-bubble {
+
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+
+    touch-action: none; /* Prevent default gestures */
+  }
+/* styles for the parent  */
+.circle-menu {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.circle-menu ul {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-menu ul li {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f90; /* Orange color */
+}
+
+.circle-menu ul li a {
+    font-size: 24px;
+    color: #f90;
+    text-decoration: none;
+}
+/* positionig the icons behind the plus button */
+.circle-menu ul li:nth-child(1) { transform: rotate(0deg)   ;  }
+.circle-menu ul li:nth-child(2) { transform: rotate(45deg)  ;  }
+.circle-menu ul li:nth-child(3) { transform: rotate(95deg)  ;  }
+.circle-menu ul li:nth-child(4) { transform: rotate(135deg) ; }
+.circle-menu ul li:nth-child(5) { transform: rotate(360deg)    }
+.circle-menu ul li:nth-child(6) { /* Center X */
+    transform: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: none;
+    z-index: 2;
+}
+.x{
+    transform: rotateZ(45deg) !important;
+}
+.circle-menu ul li:nth-child(7) { transform: rotate(225deg); }
+.circle-menu ul li:nth-child(8) { transform: rotate(270deg); }
+.circle-menu ul li:nth-child(9) { transform: rotate(315deg); }
+
+
+
+
+.circle-menu ul li:nth-child(1) {animation: forchild1  0.25s ease-in forwards ;opacity: 0; }
+@keyframes forchild1 {
+
+    to{
+        transform: rotate(0deg) translate(120px);
+        opacity: 1;
+    }
+}
+.circle-menu ul li:nth-child(2) { animation: forchild2 0.3s ease-in forwards ;opacity: 0; }
+@keyframes forchild2 {
+    to{
+        transform: rotate(45deg) translate(120px) rotateZ(-45deg);
+        opacity: 1;
+    }
+}
+.circle-menu ul li:nth-child(3) { animation: forchild3 0.35s  ease-in  forwards ;opacity: 0; }
+@keyframes forchild3 {
+    to{
+        transform: rotate(90deg) translate(120px)rotateZ(-90deg);
+        opacity: 1;
+    }
+}
+.circle-menu ul li:nth-child(4) {animation: forchild4 0.4s  ease-in  forwards ;opacity: 0; }
+@keyframes forchild4 {
+    to{
+        transform: rotate(135deg) translate(120px)rotateZ(-130deg);
+        opacity: 1;
+    }
+}
+.circle-menu ul li:nth-child(5) { animation: forchild5 0.45s  ease-in  forwards ;opacity: 0; }
+@keyframes forchild5 {
+    to{
+        transform: rotate(360deg) translate(-120px);
+        opacity: 1;
+    }
+}
+.circle-menu ul li:nth-child(6) { /* Center X */
+    transform: rotate(180deg) translate(0px) rotateZ(45deg);
+    background-color: #333;
+    color: white;
+    animation: forchild6 0.45s linear forwards; 
+}
+@keyframes forchild6 {
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+.circle-menu ul li:nth-child(7) {  animation: forchild7 0.1s  ease-in  forwards normal;opacity: 0; }
+@keyframes forchild7 {
+    to{
+        transform: rotate(225deg) translate(120px)rotateZ(135deg);
+        opacity: 1;
+    }
+}
+
+
+.circle-menu ul li:nth-child(8) { animation: forchild8 0.15s  ease-in  forwards normal;opacity: 0; }
+@keyframes forchild8 {
+    to{
+        transform: rotate(270deg) translate(120px)rotateZ(90deg);
+        opacity: 1;
+        
+    }
+}
+
+.circle-menu ul li:nth-child(9) {animation: forchild9 0.2s  ease-in  forwards normal;opacity: 0; }
+
+@keyframes forchild9 {
+    to{
+        transform: rotate(315deg) translate(120px)rotateZ(45deg);
+        opacity: 1;
+    }
+}
+/* to stop the animations from happening at the beggining */
+.noanimaton{
+animation: myname linear 0s forwards  !important
+}
+@keyframes myname {
+    to{
+        transform:none;
+    }
+}
+.animationreverse{ 
+animation: reverse  !important;} 
+
+/* same animations but is reverse and new names  */
+.UL ul li:nth-child(1) {animation: forchild10  0.25s ease-out forwards reverse !important;opacity: 0 ; }
+@keyframes forchild10 {
+
+    to{
+        transform: rotate(0deg) translate(120px);
+        opacity: 1;
+    }
+}
+.UL ul  li:nth-child(2) { animation: forchild20 0.3s ease-out forwards reverse !important;opacity: 0 ; }
+@keyframes forchild20 {
+    to{
+        transform: rotate(45deg) translate(120px) rotateZ(-45deg);
+        opacity: 1;
+    }
+}
+.UL ul li:nth-child(3) { animation: forchild30 0.35s ease-out forwards reverse !important;opacity: 0; }
+@keyframes forchild30 {
+    to{
+        transform: rotate(90deg) translate(120px)rotateZ(-90deg);
+        opacity: 1;
+    }
+}
+.UL ul li:nth-child(4) {animation: forchild40 0.4s ease-out forwards reverse !important;opacity: 0; }
+@keyframes forchild40 {
+    to{
+        transform: rotate(135deg) translate(120px)rotateZ(-130deg);
+        opacity: 1;
+    }
+}
+.UL ul li:nth-child(5) { animation: forchild50 0.45s ease-out forwards reverse !important;opacity: 0; }
+@keyframes forchild50 {
+    to{
+        transform: rotate(360deg) translate(-120px);
+        opacity: 1;
+    }
+}
+.UL ul li:nth-child(6) { /* Center X */
+    transform: rotate(180deg) translate(0px) rotateZ(45deg);
+    background-color: #333;
+    color: white;
+    animation: forchild60 0.45s linear forwards reverse !important; 
+}
+@keyframes forchild60 {
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+.UL ul li:nth-child(7) {  animation: forchild70 0.1s ease-out forwards normal reverse !important;opacity: 0; }
+@keyframes forchild70 {
+    to{
+        transform: rotate(225deg) translate(120px)rotateZ(135deg);
+        opacity: 1;
+    }
+}
+
+.UL ul li:nth-child(8) { animation: forchild80 0.15s ease-out forwards normal reverse;opacity: 0; }
+@keyframes forchild80 {
+    to{
+        transform: rotate(270deg) translate(120px)rotateZ(90deg);
+        opacity: 1;
+        
+    }
+}
+
+.UL ul li:nth-child(9) {animation: forchild90 0.2s ease-out forwards normal reverse;opacity: 0; }
+
+@keyframes forchild90 {
+    to{
+        transform: rotate(315deg) translate(120px)rotateZ(45deg);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Social Media Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="movable" class="chat-bubble">
+<div class="circle-menu" id="ul">
+    <ul >
+        <li class="noanimaton li1 " id="li"><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="noanimaton li2"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="noanimaton li3"><a href="#"><i class="fab fa-tiktok"></i></a></li>
+        <li class="noanimaton li4"><a href="#"><i class="fab fa-wordpress"></i></a></li>
+        <li class="noanimaton li5"><a href="#"><i class="fab fa-docker"></i></a></li> <!-- The center X -->
+        <li class="noanimaton li6 x" id="x"><a href="#"><i class="fas fa-times" ></i></a></li><!-- The center X -->
+        <li class="noanimaton li7"><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li class="noanimaton li8"><a href="#"><i class="fab fa-facebook"></i></a></li>
+        <li class="noanimaton li9"><a href="#"><i class="fab fa-github"></i></a></li>
+   
+    </ul>
+</div>
+</div>
+
+<script>
+ 
+function addanimation() {
+  const UL = document.getElementById('ul')
+  const allli = document.querySelectorAll('li');
+  allli.forEach(task => {
+if(task.classList.contains('animationreverse')){
+
+  task.classList.remove('animationreverse')
+  UL.classList.remove('UL')
+}
+else{
+   x.classList.remove('x')     
+  task.classList.remove('noanimaton');
+  task.classList.toggle('animationreverse');
+  UL.classList.toggle('UL')
+
+
+}
+
+
+  });
+}
+function reverse() {
+  const UL = document.getElementById('ul')
+  const allli = document.querySelectorAll('li');
+  allli.forEach(task => {
+
+    UL.classList.remove('UL')
+        task.classList.remove('noanimaton');
+        task.classList.remove('animationreverse')
+   
+
+
+
+  });
+}
+const li = document.getElementById('li');
+const x = document.getElementById('x');
+x.addEventListener('click',function(){
+
+
+if(li.classList.contains('noanimaton')){
+  li.classList.remove('noanimaton');
+  x.classList.remove('x')     
+     reverse() ;
+}
+
+
+else{
+  
+    addanimation(); 
+
+}
+
+})
+
+const bubble = document.getElementById('movable');
+
+let offsetX, offsetY, isDragging = false;
+
+// Touch events
+bubble.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
+  const rect = bubble.getBoundingClientRect();
+  
+  offsetX = touch.clientX - rect.left;
+  offsetY = touch.clientY - rect.top;
+  isDragging = true;
+});
+
+bubble.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  
+  e.preventDefault(); // Prevent scrolling
+
+  const touch = e.touches[0];
+  
+  const x = touch.clientX - offsetX;
+  const y = touch.clientY - offsetY;
+  
+  bubble.style.left = `${x}px`;
+  bubble.style.top = `${y}px`;
+});
+
+bubble.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+// Mouse events
+bubble.addEventListener('mousedown', (e) => {
+  const rect = bubble.getBoundingClientRect();
+  
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+  isDragging = true;
+  
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+});
+
+function onMouseMove(e) {
+  if (!isDragging) return;
+
+  const x = e.clientX - offsetX;
+  const y = e.clientY - offsetY;
+
+  bubble.style.left = `${x}px`;
+  bubble.style.top = `${y}px`;
+}
+
+function onMouseUp() {
+  isDragging = false;
+  document.removeEventListener('mousemove', onMouseMove);
+  document.removeEventListener('mouseup', onMouseUp);
+}
+
+
+</script>
+</body>
+</html>
